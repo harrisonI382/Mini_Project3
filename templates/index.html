@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>ML Model Selector</title>
+</head>
+<body>
+    <h1>Mini-Project 3</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <h2>Select model type and upload image below</h2>
+        <p>Please note that these models are only trained on specific items and are subject to error</p>
+        <div class="columns">
+            <div class="column">
+                <h2>Yolo Model</h2>
+                <p> The YOLO (You Only Look Once) model is renowned for predicting bounding boxes and class probabilities in a single pass through the neural network. This model will generate a new image with classifying boxes around different objects that are detected in the image</p>
+            </div>
+            <div class="column">
+                <h2>ViT Transformer Model</h2>
+                <p>The Vision Transformer (ViT) model excels in capturing global contextual information. Choosing this model will give you the object or objects with the highest probablity found in the image.</p>
+            </div>
+        </div>
+        
+        <label for="model">Select Model:</label>
+        <select name="model" id="model">
+            <option value="model1">YOLO Model</option>
+            <option value="model2">ViT Model</option>
+        </select>
+        <br>
+        <label for="file">Upload Image:</label>
+        <input type="file" name="file" id="file" accept=".jpg, .jpeg, .png" required>
+        <br>
+        <input type="submit" value="Predict">
+    </form>
+</body>
+</html>
