@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result Page</title>
+
+    <!-- Add some CSS styles for better presentation -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 80vh; /* Set maximum height to 80% of the viewport height */
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Display the YOLO result image -->
+    <img src="{{ image_path }}" alt="Result: ">
+
+    <!-- Display the YOLO model prediction -->
+    <p>{{ model }}</p>
+
+    <!-- Back button to return to the index page -->
+    <button onclick="goBack()">Back</button>
+
+    <script>
+        function goBack() {
+            // Use JavaScript to navigate back to the index page
+            window.location.href = "{{ url_for('index') }}";
+        }
+    </script>
+
+</body>
+</html>
